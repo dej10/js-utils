@@ -1,12 +1,33 @@
 {
   "name": "@dej10/js-utils",
   "version": "1.0.3",
-  "description": "",
+  "description": "A collection of utility functions and tools to enhance JavaScript development. This library provides a set of handy functions, helpers, and code snippets that simplify common tasks and improve code reuse. It focuses on efficiency and code optimization, offering utility functions for various use cases. With a functional programming approach, this library aims to enhance productivity and streamline development workflows.",
   "main": "utils.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "keywords": [
+    "Utilities",
+    "Helpers",
+    "Functions",
+    "Tools",
+    "JavaScript",
+    "Library",
+    "Code snippets",
+    "Development",
+    "Programming",
+    "Handy",
+    "Common",
+    "Useful",
+    "Code reuse",
+    "Efficiency",
+    "Simplify",
+    "Enhance",
+    "Functional programming",
+    "Code optimization",
+    "Utility functions",
+    "Codebase optimization"
+  ],
+  "author": "dej10",
+  "license": "MIT"
 }
