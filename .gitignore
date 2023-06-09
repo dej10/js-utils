@@ -1,0 +1,24 @@
+# Dependency directories
+/node_modules
+
+# Build output
+/dist
+/build
+/out
+
+# Environment variables file
+.env
+
+# Editor and IDE files
+.vscode
+.idea
+*.sublime-*
+
+# Log files
+*.log
+
+# macOS-specific
+.DS_Store
+
+# Windows-specific
+Thumbs.db

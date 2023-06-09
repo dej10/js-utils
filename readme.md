@@ -38,6 +38,13 @@ This repository contains a collection of JavaScript utilities to help with vario
     - [String Includes](#string-includes)
     - [Snooze Function](#snooze-function)
     - [Null Safe Size Function](#null-safe-size-function)
+    - [Disable Body Scroll](#disable-body-scroll)
+    - [Enable Body Scroll](#enable-body-scroll)
+    - [Debounce](#debounce)
+    - [Normalize Url](#normalize-url)
+    - [Sort Keys By Length](#sort-keys-by-length)
+    - [Clean Number](#clean-number)
+    - [Decode Entity](#decode-entity)
   - [Contributing](#contributing)
   - [License](#license)
 
@@ -74,7 +81,6 @@ import { JSONParse } from '@dej10/utils;
 const jsonString = '{"name":"John","age":30,"city":"New York"}';
 
 const parsedObject = JSONParse(jsonString);
-
 ```
 
 ### Parse Params
@@ -89,7 +95,6 @@ const queryString = 'name=John&age=30&city=New%20York';
 
 // Parsing the query string
 const parsedParams = parseParams(queryString);
-
 ```
 
 ### Get Surrounding Element
@@ -105,7 +110,6 @@ const array = [1, 2, 3, 4, 5];
 const element = 3;
 
 const surroundingElements = getSurroundingElement(array, element);
-
 ```
 
 ### Copy Text
@@ -119,7 +123,6 @@ import { copyText } from '@dej10/utils;
 const textToCopy = "Hello, world!";
 
 copyText(textToCopy);
-
 ```
 
 ### Generate FormData from Object
@@ -137,7 +140,6 @@ const dataObject = {
 };
 
 const formData = generateFormDataFromObject(dataObject);
-
 ```
 
 ### DeAssociate Object/Array
@@ -155,7 +157,6 @@ const originalObject = {
 };
 
 const deAssociatedObject = deAssociate(originalObject);
-
 ```
 
 ### Remove Empty Keys
@@ -174,7 +175,6 @@ const obj = {
 };
 
 const result = removeEmptyKeys(obj);
-
 ```
 
 ### Interval
@@ -184,7 +184,6 @@ The removeEmptyKeys utility is a function that removes empty keys from an object
 ```javascript
 import { interval } from '@dej10/utils;
 
-// Example usage
 // Example usage
 const printMessage = () => {
   console.log('Interval function executed!');
@@ -197,7 +196,6 @@ setTimeout(() => {
 // Stop the interval after 5 seconds
   clearInterval(intervalId);
 }, 5000);
-
 ```
 
 ### IsEmpty
@@ -223,7 +221,6 @@ console.log(isEmpty(nonEmptyArray));      // false
 const notAnObjectOrArray = 'Hello';
 
 console.log(isEmpty(notAnObjectOrArray)); // true
-
 ```
 
 ### Is Not Empty
@@ -274,7 +271,6 @@ const inputObject = {
 };
 
 const outputObject = parseNumber(inputObject);
-
 ```
 
 ### Rename Obj Key
@@ -292,8 +288,6 @@ const user = {
 };
 
 renameKey(user, 'name', 'fullName');
-
-
 ```
 
 ### Rename Obj Keys
@@ -314,7 +308,6 @@ const oldKeys = ['name', 'location'];
 const newKeys = ['fullName', 'city'];
 
 renameKeys(user, oldKeys, newKeys);
-
 ```
 
 ### Remove Keys
@@ -334,7 +327,6 @@ const user = {
 const keysToRemove = ['age', 'location'];
 
 const modifiedUser = removeKeys(user, keysToRemove);
-
 ```
 
 ### Reserve Keys
@@ -354,8 +346,6 @@ const user = {
 const keysToReserve = ['name', 'location'];
 
 const reservedUser = reserveKeys(user, keysToReserve);
-
-
 ```
 
 ### Querylize
@@ -591,6 +581,110 @@ console.log(nullSafeSize(array)) // Output: 5
 console.log(nullSafeSize(string)) // Output: 13
 console.log(nullSafeSize(emptyArray)) // Output: 0
 console.log(nullSafeSize(emptyString)) // Output: 0
+```
+
+### Disable Body Scroll
+
+This utility function, disableBodyScroll, disables the vertical scroll of the body element on a web page. It achieves this by setting the overflowY CSS property of the body element to 'hidden' and adjusting the height to '100vh' (100% of the viewport height). This prevents scrolling while maintaining the existing content on the page.
+
+```javascript
+import { disableBodyScroll } from 'js-utils'
+
+// Example usage
+disableBodyScroll()
+```
+
+### Enable Body Scroll
+
+The enableBodyScroll utility function enables the vertical scroll of the body element on a web page. It accomplishes this by setting the overflowY CSS property of the body element to 'visible' and resetting the height to 'auto'. This restores the default scrolling behavior of the page, allowing users to scroll vertically when needed.
+
+When called, this function reverts the changes made by the disableBodyScroll function, restoring the normal scrolling functionality of the web page.
+
+```javascript
+import { enableBodyScroll } from 'js-utils'
+
+// Example usage
+enableBodyScroll()
+```
+
+### Debounce
+
+The debounce utility function is used to debounce the execution of a given function. Debouncing is a technique that limits the rate at which a function is invoked, ensuring it is only called after a certain period of inactivity.
+
+```javascript
+import { enableBodyScroll } from 'js-utils'
+
+// Example usage
+function saveData() {
+  // Perform some expensive data-saving operation
+}
+
+// Debounce saveData function with 500ms wait time
+const debouncedSave = debounce(saveData, 500)
+
+// Call debouncedSave function multiple times in quick succession
+debouncedSave() // The saveData function will be invoked after 500ms of inactivity
+debouncedSave() // The timer is reset, delaying the invocation of saveData again
+```
+
+### Normalize Url
+
+The normalizeUrl utility function is a JavaScript function that takes a urlString as input and returns a normalized URL string. It is typically used to ensure that URLs are consistent and in a standardized format.
+
+```javascript
+import { normalizeUrl } from 'js-utils'
+
+// Example Usage
+const urlString = 'https://example.com//path//to//file///'
+const normalizedUrl = normalizeUrl(urlString)
+console.log(normalizedUrl)
+// Output: 'https://example.com/path/to/file'
+```
+
+### Sort Keys By Length
+
+The sortByKeyLength utility function is a JavaScript function that takes an obj (object) as input and sorts its properties based on the length of the keys. It returns a new array of objects containing the key-value pairs, sorted in descending order by key length.
+
+```javascript
+import { sortByKeyLength } from 'js-utils'
+
+// Example Usage
+const obj = { key1: 'value1', key22: 'value22', key333: 'value333' }
+const sortedArray = sortByKeyLength(obj)
+console.log(sortedArray)
+// Output: [ { key: 'key333', value: 'value333' }, { key: 'key22', value: 'value22' }, { key: 'key1', value: 'value1' } ]
+```
+
+### Clean Number
+
+The cleanNumber utility function is a JavaScript function that takes a value and an optional minimum as input and returns a cleaned number
+
+```javascript
+import { cleanNumber } from 'js-utils'
+
+// Example Usage
+const value = cleanNumber('abc')
+console.log(value)
+// Output: 0
+
+const valueWithMin = cleanNumber(10, 5)
+console.log(valueWithMin)
+// Output: 10 (since 10 is greater than the specified minimum of 5)
+```
+
+### Decode Entity
+
+The decodeEntity utility function is a JavaScript function that takes an htmlStr (HTML string) as input and returns the decoded version of the HTML entities within the string. It achieves this by calling the htmlEscape function from the escape-goat library.
+
+```javascript
+import { decodeEntity } from 'js-utils'
+
+// Example Usage
+
+const htmlString = '&lt;div&gt;Hello, &amp;nbsp;World!&lt;/div&gt;'
+const decodedString = decodeEntity(htmlString)
+console.log(decodedString)
+// Output: '<div>Hello, &nbsp;World!</div>'
 ```
 
 ## Contributing

@@ -29,5 +29,9 @@
     "Codebase optimization"
   ],
   "author": "dej10",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "escape-goat": "^4.0.0"
+  }
 }

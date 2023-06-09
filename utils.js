@@ -1,3 +1,8 @@
+// dependencies 
+import axios from 'axios';
+import { htmlEscape } from 'escape-goat'
+
+
 // Extended JSON Parse
 export const JSONParse = (str, defaultVal = []) => {
   try {
@@ -228,25 +233,25 @@ export const generateAlphaNum = (_length) => {
 
 // SSR LocalStorage
 export const ssrLocalStorage = {
-  getItem(key) {
+  getItem (key) {
     if (process.client) {
       return localStorage.getItem(key)
     }
   },
 
-  setItem(key, value) {
+  setItem (key, value) {
     if (process.client) {
       localStorage.setItem(key, value)
     }
   },
 
-  removeItem(key) {
+  removeItem (key) {
     if (process.client) {
       localStorage.removeItem(key)
     }
   },
 
-  clear() {
+  clear () {
     if (process.client) {
       localStorage.clear()
     }
@@ -254,7 +259,9 @@ export const ssrLocalStorage = {
 }
 
 // Append link with https
-export const withHttp = (url, { https = true } = {}) => {
+export const withHttp = (url, {
+  https = true
+} = {}) => {
   if (typeof url !== 'string') {
     throw new TypeError(
       `Expected \`url\` to be of type \`string\`, got \`${typeof url}\``
@@ -315,7 +322,7 @@ export const shuffleArray = (arr) => {
 
 // Handle error response
 export const formatError = (errObj, isHtml = false) => {
-  const validationErrors = errObj.response?.data?.errors // Laravel
+  const validationErrors = errObj.response ?.data ?.errors // Laravel
   const compositeErrors = []
   if (errObj.response) {
     if (validationErrors) {
@@ -343,33 +350,46 @@ export const getFileSize = (x) => {
   return n.toFixed(n < 10 && l > 0 ? 1 : 0)
 }
 
-export const formatDateTime = (strDateTime, format = 'MMMM D, YYYY') => {
-  return dayjs(strDateTime).format(format)
-}
-
-// export const timeFromNow = (date) => {
-//   dayjs.extend(RelativeTime)
-//   return dayjs(date).fromNow()
-// }
 
 export const rowNumber = (row, perPage, page) => {
   return (page - 1) * perPage + row
 }
 
 export const postAction = ($axios, url, payload) => {
-  return $axios.$post(url, payload, { params: payload?.params })
+  return axios.post(url, payload, {
+    params: payload?.params
+  })
 }
 
 export const putAction = ($axios, url, payload) => {
-  return $axios.$put(url, payload, { params: payload?.params })
+  return axios.put(url, payload, {
+    params: payload?.params
+  })
 }
 
 export const getAction = ($axios, url, payload) => {
-  return $axios.$get(url, { params: payload })
+  return axios.get(url, {
+    params: payload
+  })
 }
 
+
+export const pushUniqueValue = (array, value, key = null) => {
+  const found = array.find((item) => {
+    const a = key ? item[key] : item
+    const b = key ? value[key] : value
+
+    return a.toLowerCase() === b.toLowerCase()
+  })
+
+  if (!found) {
+    array.push(value)
+  }
+}
+
+
 export const deleteAction = ($axios, url) => {
-  return $axios.$delete(url)
+  return axios.delete(url)
 }
 
 export const stringIncludes = (str, strArr) => {
@@ -392,4 +412,84 @@ export const nullSafeSize = (obj) => {
   } else {
     return 0
   }
+}
+
+export const disableBodyScroll = () => {
+  const body = document.querySelector('body')
+  body.style.overflowY = 'hidden'
+  body.style.height = '100vh'
+}
+
+export const enableBodyScroll = () => {
+  const body = document.querySelector('body')
+  body.style.overflowY = 'visible'
+  body.style.height = 'auto'
+}
+
+// debounce
+export function debounce(fn, wait) {
+  let timer
+  return function (...args) {
+    if (timer) {
+      clearTimeout(timer)
+    }
+    const context = this // get the current context
+    timer = setTimeout(() => {
+      fn.apply(context, args)
+    }, wait)
+  }
+}
+
+export const normalizeUrl = (urlString) => {
+  const parsedUrl = new URL(urlString)
+  if (!parsedUrl.host || !parsedUrl.protocol) {
+    return urlString
+  } else {
+    return (
+      parsedUrl.origin +
+      parsedUrl.pathname.replace(/\/+/g, '/').replace(/\/$/, '')
+    )
+  }
+}
+
+
+// 404 error
+export const notFoundError = () => {
+  return {
+    statusCode: 404,
+    message: 'This page could not be found'
+  }
+}
+
+export const sortByKeyLength = (obj) => {
+  Object.keys(obj)
+    .map(function (k) {
+      return { key: k, value: obj[k] }
+    })
+    .sort(function (a, b) {
+      return b.value.length - a.value.length
+    })
+}
+
+// Strips a number number input
+export const cleanNumber = (value, min = null) => {
+  value = isNaN(value) ? 0 : value
+  if (min) {
+    value = Math.max(min, value)
+  }
+  return value
+}
+
+
+export const scrollToTop = () => window.scrollTo(0, 0)
+
+export const decodeEntity = (htmlStr) => {
+  return htmlEscape(htmlStr)
+}
+
+export const kebabToTitle = (str) => {
+  return str
+    .split('-')
+    .map((w) => w[0].toUpperCase() + w.substring(1).toLowerCase())
+    .join(' ')
 }
