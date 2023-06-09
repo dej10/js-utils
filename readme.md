@@ -35,7 +35,7 @@ This repository contains a collection of JavaScript utilities to help with vario
     - [Format Error](#format-error)
     - [Get file Size](#get-file-size)
     - [Row Number](#row-number)
-    - [Strung Includes](#strung-includes)
+    - [String Includes](#string-includes)
     - [Snooze Function](#snooze-function)
     - [Null Safe Size Function](#null-safe-size-function)
   - [Contributing](#contributing)
@@ -547,7 +547,7 @@ console.log(rowNumber(5, 20, 3)) // Output: 65
 console.log(rowNumber(3, 15, 5)) // Output: 63
 ```
 
-### Strung Includes
+### String Includes
 
 The stringIncludes utility is a function that checks if a string includes any of the words from an array of strings. It takes two parameters: str (the main string to search within) and strArr (an array of strings to search for). It returns a boolean value indicating whether any of the words in the array are found within the main string.
 
