@@ -41,8 +41,5 @@
   "bugs": {
     "url": "https://github.com/dej10/js-utils/issues"
   },
-  "homepage": "https://github.com/dej10/js-utils#readme",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  }
+  "homepage": "https://github.com/dej10/js-utils#readme"
 }
