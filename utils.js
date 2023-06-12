@@ -1,5 +1,5 @@
 // dependencies 
-import axios from 'axios';
+// import axios from 'axios';
 import { htmlEscape } from 'escape-goat'
 
 
@@ -356,23 +356,23 @@ export const rowNumber = (row, perPage, page) => {
   return (page - 1) * perPage + row
 }
 
-export const postAction = ($axios, url, payload) => {
-  return axios.post(url, payload, {
-    params: payload?.params
-  })
-}
+// export const postAction = ($axios, url, payload) => {
+//   return axios.post(url, payload, {
+//     params: payload?.params
+//   })
+// }
 
-export const putAction = ($axios, url, payload) => {
-  return axios.put(url, payload, {
-    params: payload?.params
-  })
-}
+// export const putAction = ($axios, url, payload) => {
+//   return axios.put(url, payload, {
+//     params: payload?.params
+//   })
+// }
 
-export const getAction = ($axios, url, payload) => {
-  return axios.get(url, {
-    params: payload
-  })
-}
+// export const getAction = ($axios, url, payload) => {
+//   return axios.get(url, {
+//     params: payload
+//   })
+// }
 
 
 export const pushUniqueValue = (array, value, key = null) => {
@@ -389,9 +389,9 @@ export const pushUniqueValue = (array, value, key = null) => {
 }
 
 
-export const deleteAction = ($axios, url) => {
-  return axios.delete(url)
-}
+// export const deleteAction = ($axios, url) => {
+//   return axios.delete(url)
+// }
 
 export const stringIncludes = (str, strArr) => {
   return strArr
