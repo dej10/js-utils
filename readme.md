@@ -28,16 +28,16 @@ This repository contains a collection of JavaScript utilities to help with vario
     - [Is Email](#is-email)
     - [Generate Alpha Num](#generate-alpha-num)
     - [Generate Alpha Num](#generate-alpha-num-1)
-    - [with HTTP](#with-http)
+    - [With HTTP](#with-http)
     - [Null Safe](#null-safe)
     - [is Valid Url](#is-valid-url)
     - [Shuffle Array](#shuffle-array)
     - [Format Error](#format-error)
-    - [Get file Size](#get-file-size)
+    - [Get File Size](#get-file-size)
     - [Row Number](#row-number)
     - [String Includes](#string-includes)
-    - [Snooze Function](#snooze-function)
-    - [Null Safe Size Function](#null-safe-size-function)
+    - [Snooze](#snooze)
+    - [Null Safe Size](#null-safe-size)
     - [Disable Body Scroll](#disable-body-scroll)
     - [Enable Body Scroll](#enable-body-scroll)
     - [Debounce](#debounce)
@@ -403,7 +403,7 @@ const generatedRef = generateAlphaNum(8)
 console.log(generatedRef) //2GxR5E9h
 ```
 
-### with HTTP
+### With HTTP
 
 The withHttp utility is a function that appends the http:// or https:// prefix to a given URL if it doesn't already have one. By default, it adds the https:// prefix, but you can override it by passing { https: false } as the second argument.
 
@@ -508,7 +508,7 @@ console.log(formatError(errorObj2)) // Output: "Server error"
 console.log(formatError(errorObj3)) // Output: "Network error"
 ```
 
-### Get file Size
+### Get File Size
 
 The getFileSize utility is a function that converts a file size in bytes to a human-readable format. It accepts a numeric value (x) representing the file size in bytes and returns the formatted file size as a string.
 
@@ -549,7 +549,7 @@ console.log(stringIncludes('Hello world', ['hello', 'world'])) // Output: true
 console.log(stringIncludes('JavaScript is fun', ['python', 'programming'])) // Output: false
 ```
 
-### Snooze Function
+### Snooze
 
 The snooze utility is a function that delays the execution of a provided function for a specified timeout period. It takes two parameters: func (the function to be executed) and timeout (the timeout duration in milliseconds, with a default value of 2000). The utility uses setTimeout to schedule the execution of the function after the specified timeout.
 
@@ -564,7 +564,7 @@ const greet = () => {
 snooze(greet, 3000) // Executes the greet function after a 3000ms (3 seconds) delay
 ```
 
-### Null Safe Size Function
+### Null Safe Size
 
 The nullSafeSize utility is a function that returns the length of an array or string. It takes a single parameter obj and checks if it is truthy. If obj is truthy, it returns the length of the object. Otherwise, it returns 0.
 
@@ -612,7 +612,7 @@ enableBodyScroll()
 The debounce utility function is used to debounce the execution of a given function. Debouncing is a technique that limits the rate at which a function is invoked, ensuring it is only called after a certain period of inactivity.
 
 ```javascript
-import { enableBodyScroll } from 'js-utils'
+import { debounce } from 'js-utils'
 
 // Example usage
 function saveData() {

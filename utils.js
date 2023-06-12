@@ -219,17 +219,18 @@ export const isEmail = (emailStr) => {
 // Generate AlphaNum (Payment Refs)
 export const generateAlphaNum = (_length) => {
   if (typeof _length === 'string') {
-    _length = _length.length
+    _length = _length.length;
   }
-  let text = ''
-  const length = _length ?? 10
+  const length = _length || 10;
   const possible =
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-  for (let i = 0; i < length; i++) {
-    text += possible.charAt(Math.floor(Math.random() * possible.length))
-  }
-  return text
-}
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+  const text = Array.from({ length }, () =>
+    possible.charAt(Math.floor(Math.random() * possible.length))
+  ).join('');
+
+  return text;
+};
 
 // SSR LocalStorage
 export const ssrLocalStorage = {
@@ -493,3 +494,6 @@ export const kebabToTitle = (str) => {
     .map((w) => w[0].toUpperCase() + w.substring(1).toLowerCase())
     .join(' ')
 }
+
+
+generateAlphaNum(10)
