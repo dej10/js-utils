@@ -32,7 +32,7 @@ This repository contains a collection of JavaScript utilities to help with vario
     - [Null Safe](#null-safe)
     - [is Valid Url](#is-valid-url)
     - [Shuffle Array](#shuffle-array)
-    - [Format Error](#format-error)
+    - [Format Error (WIP)](#format-error-wip)
     - [Get File Size](#get-file-size)
     - [Row Number](#row-number)
     - [String Includes](#string-includes)
@@ -473,7 +473,7 @@ const shuffledArray = shuffleArray(myArray)
 console.log(shuffledArray) // [4, 2, 1, 5, 3]
 ```
 
-### Format Error
+### Format Error (WIP)
 
 The formatError utility is a function that handles error responses and formats them into a single error message. It accepts an error object (errObj) and an optional boolean flag (isHtml) to indicate whether the error message should be formatted as HTML or plain text.
 
