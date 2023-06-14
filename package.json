@@ -1,10 +1,18 @@
 {
   "name": "@dej10/js-utils",
-  "version": "1.0.10",
-  "description": "A collection of utility functions and tools to enhance JavaScript development. This library provides a set of handy functions, helpers, and code snippets that simplify common tasks and improve code reuse. It focuses on efficiency and code optimization, offering utility functions for various use cases. With a functional programming approach, this library aims to enhance productivity and streamline development workflows.",
   "main": "utils.js",
+  "bugs": {
+    "url": "https://github.com/dej10/js-utils/issues"
+  },
+  "type": "module",
+  "author": "dej10",
+  "version": "1.0.10",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=4.0.0"
   },
   "keywords": [
     "Utilities",
@@ -28,18 +36,14 @@
     "Utility functions",
     "Codebase optimization"
   ],
-  "author": "dej10",
-  "license": "MIT",
+  "homepage": "https://github.com/dej10/js-utils#readme",
+  "repository": {
+    "url": "https://github.com/dej10/js-utils.git",
+    "type": "git"
+  },
+  "description": "A collection of utility functions and tools to enhance JavaScript development. This library provides a set of handy functions, helpers, and code snippets that simplify common tasks and improve code reuse. It focuses on efficiency and code optimization, offering utility functions for various use cases. With a functional programming approach, this library aims to enhance productivity and streamline development workflows.",
   "dependencies": {
     "axios": "^1.4.0",
     "escape-goat": "^4.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/dej10/js-utils.git"
-  },
-  "bugs": {
-    "url": "https://github.com/dej10/js-utils/issues"
-  },
-  "homepage": "https://github.com/dej10/js-utils#readme"
+  }
 }
